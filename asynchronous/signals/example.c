@@ -84,7 +84,7 @@ void runLoop ( void ) {
 
 
 		// Ignore all other signals while we wait.
-		// The previously blocked signals is unblocked.
+		// The previously blocked signals are unblocked.
 
 		sigsuspend ( & allSignals );
 
