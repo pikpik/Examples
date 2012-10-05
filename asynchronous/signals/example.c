@@ -96,7 +96,7 @@ void runLoop ( void ) {
 	}
 
 
-	// This ends the "critical section" by ignoring our signals again.
+	// This ends the "critical section" by listening to signals normally again.
 
 	sigprocmask ( SIG_UNBLOCK, & listeningSignals, NULL );
 
