@@ -25,6 +25,6 @@ Then send signals to the program:
 
 	kill -USR1 PID
 
-(It may seem absurd to use "kill" for this, but that's the standard utility for sending signals.)
+The thing after the dash is the name of the signal, but without "SIG" on the beginning. (It may seem absurd to use "kill" for this, but that's the standard utility for sending signals.)
 
 Watch the first terminal to see when the signals are received and what number of signal was seen.

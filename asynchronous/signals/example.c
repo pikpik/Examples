@@ -6,7 +6,7 @@ volatile sig_atomic_t eventHappened = 0;
 volatile sig_atomic_t waiting = 1;
 
 
-void onSignalTakeAction ( int signal, void (* action) (int) ) {
+void responseForSignal ( void (* action) (int), int signal ) {
 
 	struct sigaction signalResponse;
 
@@ -62,6 +62,7 @@ void runLoop ( void ) {
 	sigemptyset ( & listeningSignals );
 
 	sigaddset ( & listeningSignals, SIGUSR1 );
+
 	sigaddset ( & listeningSignals, SIGUSR2 );
 
 
@@ -72,8 +73,9 @@ void runLoop ( void ) {
 
 	// Listen for our signals once we uncover our ears.
 
-	onSignalTakeAction ( SIGUSR1, respondToSIGUSR1 );
-	onSignalTakeAction ( SIGUSR2, respondToSIGUSR2 );
+	responseForSignal ( respondToSIGUSR1, SIGUSR1 );
+
+	responseForSignal ( respondToSIGUSR2, SIGUSR2 );
 
 
 	while ( waiting ) {
