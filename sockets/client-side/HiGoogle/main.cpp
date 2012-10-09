@@ -45,7 +45,16 @@ int main ( void ) {
 
   int status;
 
-  if ( ( status = getaddrinfo ( server, port, &hints, &servinfo ) ) != 0 ) {
+  if (
+    (
+      status = getaddrinfo (
+        server,
+        port,
+        &hints,
+        &servinfo
+      )
+    ) != 0
+  ) {
 
     std::cout << "Error: getaddrinfo says, \"" << gai_strerror ( status ) << "\"" << std::endl;
 
